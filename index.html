@@ -18,7 +18,6 @@ html, body {
   margin: auto;
 }
 
-/* TITLE */
 .title {
   color: #ffffff;
   font-size: 18px;
@@ -26,14 +25,12 @@ html, body {
   padding: 15px 15px 5px;
 }
 
-/* DESC */
 .desc {
   color: #9aa4b2;
   font-size: 13px;
   padding: 0 15px 10px;
 }
 
-/* VIDEO */
 .video-box {
   position: relative;
 }
@@ -45,7 +42,6 @@ video {
   background: #000;
 }
 
-/* LOADING */
 .loading {
   position: absolute;
   top: 50%;
@@ -54,7 +50,6 @@ video {
   color: #cbd5e1;
 }
 
-/* CTA */
 .cta {
   display: block;
   margin: 15px;
@@ -68,7 +63,6 @@ video {
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
 }
 
-/* SECTION */
 .rec-title {
   color: #e2e8f0;
   font-size: 16px;
@@ -76,7 +70,6 @@ video {
   padding: 15px;
 }
 
-/* ADS */
 .native-wrap {
   display: flex;
   justify-content: center;
@@ -95,17 +88,14 @@ video {
 
 <div class="page">
 
-<!-- TITLE -->
 <div class="title">
 This Clip Is Going Viral For A Reason 👀
 </div>
 
-<!-- DESC -->
 <div class="desc">
 People are talking about this everywhere. Watch and decide for yourself what really happened.
 </div>
 
-<!-- VIDEO -->
 <div class="video-box">
 <div class="loading" id="loading">Loading video...</div>
 
@@ -123,20 +113,11 @@ disablePictureInPicture
 </video>
 </div>
 
-<!-- CTA -->
 <a href="#" class="cta" id="ctaBtn">
 ▶ Continue Watching
 </a>
 
-<div class="rec-title">🔥 Trending Videos</div>
-
-<!-- NATIVE -->
-<div class="native-wrap">
-<script async="async" data-cfasync="false" src="https://possessedannihilation.com/e93c0137aaa96ed8325629fb6b33e330/invoke.js"></script>
-<div id="container-e93c0137aaa96ed8325629fb6b33e330"></div>
-</div>
-
-<!-- BANNER -->
+<!-- BANNER ATAS -->
 <div class="banner-300">
 <script>
   var atOptions = {
@@ -147,7 +128,15 @@ disablePictureInPicture
     'params' : {}
   };
 </script>
-<script src="https://possessedannihilation.com/ca4ea2c14dbde05405fa08bd6e7bb612/invoke.js"></script>
+<script src="https://brewdismaychest.com/ca4ea2c14dbde05405fa08bd6e7bb612/invoke.js"></script>
+</div>
+
+<div class="rec-title">🔥 Trending Videos</div>
+
+<!-- NATIVE BAWAH -->
+<div class="native-wrap">
+<script async="async" data-cfasync="false" src="https://brewdismaychest.com/e93c0137aaa96ed8325629fb6b33e330/invoke.js"></script>
+<div id="container-e93c0137aaa96ed8325629fb6b33e330"></div>
 </div>
 
 </div>
@@ -158,12 +147,10 @@ disablePictureInPicture
 const params = new URLSearchParams(window.location.search);
 let video = params.get("v");
 
-// DEFAULT VIDEO
 if (!video) {
   video = "https://cdn.videy.co/AAU8a62J1.mp4";
 }
 
-// AUTO FIX LINK
 if (!video.startsWith("http")) {
   video = "https://cdn.videy.co/" + video;
 }
@@ -173,22 +160,17 @@ const source = document.getElementById("videoSource");
 const loading = document.getElementById("loading");
 const cta = document.getElementById("ctaBtn");
 
-// SET VIDEO
 source.src = video;
 player.load();
 
-// AUTOPLAY
 player.play().catch(() => {});
 
-// HIDE LOADING
 player.addEventListener("loadeddata", () => {
   loading.style.display = "none";
 });
 
-// ANTI RIGHT CLICK
 player.addEventListener("contextmenu", e => e.preventDefault());
 
-// CTA
 cta.addEventListener("click", function(e){
   e.preventDefault();
   window.location.href = "https://thetimelinebewilds.blogspot.com/";
@@ -196,27 +178,6 @@ cta.addEventListener("click", function(e){
 
 })();
 </script>
-
-<!-- Histats.com  START  (aync)-->
-<script type="text/javascript">
-var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,5014859,4,9,110,60,00011111']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); 
-hs.type = 'text/javascript'; 
-hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();
-</script>
-<noscript>
-<a href="/" target="_blank">
-<img src="//sstatic1.histats.com/0.gif?5014859&101" alt="" border="0">
-</a>
-</noscript>
-<!-- Histats.com  END  -->
 
 </body>
 </html>
