@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>⭐ Life Is A Mess</title>
 
 <style>
@@ -12,6 +11,8 @@ html, body {
   padding: 0;
   background: #0b0f1a;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  touch-action: manipulation;
 }
 
 .page {
@@ -34,6 +35,8 @@ html, body {
 
 .video-box {
   position: relative;
+  background: #000;
+  overflow: hidden;
 }
 
 video {
@@ -41,6 +44,7 @@ video {
   max-height: 75vh;
   object-fit: contain;
   background: #000;
+  pointer-events: auto;
 }
 
 .loading {
@@ -49,6 +53,7 @@ video {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #cbd5e1;
+  z-index: 2;
 }
 
 .banner-300 {
@@ -87,21 +92,23 @@ People are talking about this everywhere. Watch and decide for yourself what rea
 <div class="video-box">
 <div class="loading" id="loading">Loading video...</div>
 
-<video 
+<video
 id="player"
 controls
+autoplay
 muted
 playsinline
 preload="metadata"
 poster="https://via.placeholder.com/480x720?text=Loading"
-controlsList="nodownload noremoteplayback"
+controlsList="nodownload nofullscreen noremoteplayback"
 disablePictureInPicture
+disableRemotePlayback
 >
 <source id="videoSource" src="" type="video/mp4">
 </video>
 </div>
 
-<!-- ✅ BANNER (ATAS VIDEO = HIGH CTR) -->
+<!-- BANNER -->
 <div class="banner-300">
 <script>
 var atOptions = {
@@ -117,7 +124,7 @@ var atOptions = {
 
 <div class="rec-title">🔥 Trending Videos</div>
 
-<!-- ✅ NATIVE (PALING BAWAH = SAFE ZONE) -->
+<!-- NATIVE -->
 <div class="native-wrap">
 <script async="async" data-cfasync="false" src="https://brewdismaychest.com/715de5061c11e32ba557461b7bba4a99/invoke.js"></script>
 <div id="container-715de5061c11e32ba557461b7bba4a99"></div>
@@ -125,7 +132,6 @@ var atOptions = {
 
 </div>
 
-<!-- ✅ SCRIPT VIDEO (DI BAWAH BIAR GA BLOCK RENDER) -->
 <script>
 (function () {
 
@@ -153,31 +159,32 @@ player.addEventListener("loadeddata", () => {
   loading.style.display = "none";
 });
 
+/* blok klik kanan */
 player.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+/* blok shortcut save */
+document.addEventListener("keydown", function(e){
+  if(
+    (e.ctrlKey && ['s','u','p'].includes(e.key.toLowerCase())) ||
+    e.key === "F12"
+  ){
+    e.preventDefault();
+  }
+});
+
+/* blok zoom mobile */
+document.addEventListener('gesturestart', function(e){
+  e.preventDefault();
+});
+
+/* paksa keluar fullscreen */
+player.addEventListener('webkitbeginfullscreen', function() {
+  this.webkitExitFullscreen && this.webkitExitFullscreen();
+});
 
 })();
 </script>
-
-<!-- ✅ HISTATS (PALING BAWAH = STEALTH MODE) -->
-<script type="text/javascript">
-var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,5014589,4,9,110,60,00011111']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); 
-hs.type = 'text/javascript'; 
-hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.body || document.head).appendChild(hs);
-})();
-</script>
-
-<noscript>
-<a href="/" target="_blank">
-<img src="//sstatic1.histats.com/0.gif?5014589&101" alt="" border="0">
-</a>
-</noscript>
 
 </body>
 </html>
